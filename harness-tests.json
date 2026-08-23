@@ -1,0 +1,157 @@
+{
+  "tests": [
+    {
+      "id": "bug_001_vague_report",
+      "prompt": "Something is broken on your website.",
+      "expected": "Must classify as BUG REPORT. Must not answer from the FAQ. Must not refuse or redirect to the human support line. Must not call create_bug_report yet. Must ask for exactly one missing field, starting with a clearer description of the bug."
+    },
+    {
+      "id": "bug_002_description_only",
+      "prompt": "The checkout page freezes.",
+      "expected": "Must classify as BUG REPORT. Must recognize the description is already provided. Must not call create_bug_report yet. Must ask for exactly one missing field only, preferably steps to reproduce."
+    },
+    {
+      "id": "bug_003_description_and_steps_only",
+      "prompt": "The checkout page freezes when I click Pay. Steps: add an item to cart, go to checkout, enter payment info, and click Pay.",
+      "expected": "Must classify as BUG REPORT. Must recognize description and stepsToReproduce are already provided. Must not call create_bug_report yet. Must ask only for the missing environment."
+    },
+    {
+      "id": "bug_004_environment_only",
+      "prompt": "It is broken on Safari on my iPhone.",
+      "expected": "Must classify as BUG REPORT. Must recognize only environment is present. Must not call create_bug_report yet. Must ask for exactly one missing field only, preferably a description of what is broken."
+    },
+    {
+      "id": "bug_005_description_and_environment_only",
+      "prompt": "The chatbot crashes on Firefox on Ubuntu.",
+      "expected": "Must classify as BUG REPORT. Must recognize description and environment are present. Must not call create_bug_report yet. Must ask only for the missing steps to reproduce."
+    },
+    {
+      "id": "bug_006_complete_report",
+      "prompt": "The checkout page freezes when I click Pay. Steps: add an item to cart, go to checkout, enter payment info, and click Pay. Environment: Chrome on Windows 11 laptop.",
+      "expected": "Must classify as BUG REPORT. Must recognize all three required fields are present: description, stepsToReproduce, and environment. Must call create_bug_report with those fields. After success, must provide the ticket ID and say the engineering team will follow up."
+    },
+    {
+      "id": "bug_007_do_not_batch_questions",
+      "prompt": "The app is broken.",
+      "expected": "Must classify as BUG REPORT. Must ask for only one missing field in the response. Must not ask for description, steps, and environment all at once. Must not call create_bug_report."
+    },
+    {
+      "id": "bug_008_bug_not_platform",
+      "prompt": "My account page is not loading.",
+      "expected": "Must classify as BUG REPORT because the customer is reporting something broken. Must not answer from the FAQ. Must begin collecting bug details one question at a time. Must not call create_bug_report until all three fields are collected."
+    },
+    {
+      "id": "bug_009_bug_not_anything_else",
+      "prompt": "Your payment form crashes every time I submit it.",
+      "expected": "Must classify as BUG REPORT. Must not route to ANYTHING ELSE. Must not refer to the human support line. Must ask for exactly one missing field next."
+    },
+    {
+      "id": "bug_010_complete_mobile_report",
+      "prompt": "The payment screen hangs after I tap Submit. Steps: open the app, add a product, go to checkout, tap Submit. Environment: Safari on iPhone 14 running iOS 17.",
+      "expected": "Must classify as BUG REPORT. Must call create_bug_report only after confirming all three fields are present. After success, must provide the ticket ID and say the engineering team will follow up."
+    },
+
+    {
+      "id": "faq_001_returns_policy",
+      "prompt": "What is your return policy?",
+      "expected": "Must classify as PLATFORM QUESTION if the Online Shop FAQ contains return-policy information. Must answer only using the FAQ. Must not invent extra conditions, timelines, or fees not stated in the FAQ. If the FAQ does not cover returns, must classify as ANYTHING ELSE and refer to the human support line."
+    },
+    {
+      "id": "faq_002_shipping_time",
+      "prompt": "How long does shipping take?",
+      "expected": "Must classify as PLATFORM QUESTION if the Online Shop FAQ contains shipping-time information. Must answer only using the FAQ. Must not invent delivery estimates beyond the FAQ. If not covered, must classify as ANYTHING ELSE and refer to the human support line."
+    },
+    {
+      "id": "faq_003_payment_methods",
+      "prompt": "What payment methods do you accept?",
+      "expected": "Must classify as PLATFORM QUESTION if the Online Shop FAQ contains payment-method information. Must answer only using the FAQ. Must not guess unsupported payment methods. If not covered, must classify as ANYTHING ELSE and refer to the human support line."
+    },
+    {
+      "id": "faq_004_order_tracking",
+      "prompt": "How can I track my order?",
+      "expected": "Must classify as PLATFORM QUESTION if the Online Shop FAQ contains order-tracking information. Must answer only using the FAQ. Must not invent tracking workflows not stated in the FAQ. If not covered, must classify as ANYTHING ELSE and refer to the human support line."
+    },
+    {
+      "id": "faq_005_refund_timing",
+      "prompt": "How long do refunds take?",
+      "expected": "Must classify as PLATFORM QUESTION if the Online Shop FAQ contains refund-timing information. Must answer only using the FAQ. Must not invent refund timelines. If not covered, must classify as ANYTHING ELSE and refer to the human support line."
+    },
+    {
+      "id": "faq_006_cancel_order",
+      "prompt": "Can I cancel my order after placing it?",
+      "expected": "Must classify as PLATFORM QUESTION if the Online Shop FAQ contains cancellation information. Must answer only using the FAQ. Must not invent cancellation rules. If not covered, must classify as ANYTHING ELSE and refer to the human support line."
+    },
+    {
+      "id": "faq_007_international_shipping",
+      "prompt": "Do you ship internationally?",
+      "expected": "Must classify as PLATFORM QUESTION if the Online Shop FAQ contains international-shipping information. Must answer only using the FAQ. Must not invent country coverage or restrictions. If not covered, must classify as ANYTHING ELSE and refer to the human support line."
+    },
+    {
+      "id": "faq_008_privacy",
+      "prompt": "How do you use my personal data?",
+      "expected": "Must classify as PLATFORM QUESTION if the Online Shop FAQ contains privacy information. Must answer only using the FAQ. Must not invent privacy practices. If not covered, must classify as ANYTHING ELSE and refer to the human support line."
+    },
+    {
+      "id": "faq_009_account_help",
+      "prompt": "How do I reset my password?",
+      "expected": "Must classify as PLATFORM QUESTION if the Online Shop FAQ contains account-help information. Must answer only using the FAQ. If the FAQ does not cover password reset, must classify as ANYTHING ELSE and refer to the human support line."
+    },
+    {
+      "id": "faq_010_product_question_not_in_faq",
+      "prompt": "Is this jacket waterproof?",
+      "expected": "If the Online Shop FAQ does not explicitly answer this product question, the assistant must not invent an answer. It must classify as ANYTHING ELSE and refer to the human support line."
+    },
+
+    {
+      "id": "fallback_001_bitcoin",
+      "prompt": "Do you accept Bitcoin?",
+      "expected": "If Bitcoin is not explicitly mentioned in the Online Shop FAQ, the assistant must not guess. It must classify as ANYTHING ELSE and refer to the human support line at 1-800-555-0199 (Mon-Fri)."
+    },
+    {
+      "id": "fallback_002_same_day_shipping_nepal",
+      "prompt": "Can you guarantee same-day shipping to Nepal?",
+      "expected": "If this is not explicitly covered in the Online Shop FAQ, the assistant must not invent a shipping policy. It must classify as ANYTHING ELSE and refer to the human support line."
+    },
+    {
+      "id": "fallback_003_gift_advice",
+      "prompt": "Can you help me choose a birthday gift?",
+      "expected": "Must classify as ANYTHING ELSE because this is neither a bug report nor a FAQ-grounded platform question. Must politely explain it cannot help here and refer to the human support line."
+    },
+    {
+      "id": "fallback_004_general_chat",
+      "prompt": "How is your day going?",
+      "expected": "Must classify as ANYTHING ELSE. Must politely explain it cannot help here and refer to the human support line."
+    },
+    {
+      "id": "fallback_005_code_request",
+      "prompt": "Can you write code for my website?",
+      "expected": "Must classify as ANYTHING ELSE. Must politely explain it cannot help here and refer to the human support line."
+    },
+
+    {
+      "id": "mixed_001_bug_and_faq_same_message",
+      "prompt": "The checkout page freezes when I click Pay, and also what is your return policy?",
+      "expected": "Because the system prompt says the assistant must first decide which ONE category the message belongs to, the assistant must choose a single category only. Since the message includes a bug report, it should prioritize BUG REPORT behavior and begin collecting missing bug details one question at a time. It must not also answer the FAQ in the same response."
+    },
+    {
+      "id": "mixed_002_bug_with_known_environment",
+      "prompt": "Your app crashes on my iPhone. I'm using Safari on iOS 17.",
+      "expected": "Must classify as BUG REPORT. Must recognize description and environment are already present. Must ask only for the missing steps to reproduce. Must not call create_bug_report yet."
+    },
+    {
+      "id": "mixed_003_platform_question_with_unknown_policy",
+      "prompt": "What payment methods do you accept, and do you also take Bitcoin?",
+      "expected": "Because the system prompt requires choosing ONE category, the assistant should treat this as PLATFORM QUESTION only if the FAQ covers the payment-method question. It must answer strictly from the FAQ and must not invent Bitcoin support if Bitcoin is not in the FAQ. If the FAQ does not cover the question sufficiently, it must classify as ANYTHING ELSE and refer to the human support line."
+    },
+    {
+      "id": "mixed_004_bug_then_followup_needed",
+      "prompt": "The sign-in page fails every time on Chrome.",
+      "expected": "Must classify as BUG REPORT. Must recognize description and partial environment may be present. Must ask for only one missing field next, not all remaining fields at once. Must not call create_bug_report yet."
+    },
+    {
+      "id": "mixed_005_faq_or_fallback",
+      "prompt": "Can I return a sale item?",
+      "expected": "Must classify as PLATFORM QUESTION only if the Online Shop FAQ explicitly covers sale-item returns. Must answer only from the FAQ. If the FAQ does not explicitly cover sale items, must not infer policy and must classify as ANYTHING ELSE with referral to the human support line."
+    }
+  ]
+}
