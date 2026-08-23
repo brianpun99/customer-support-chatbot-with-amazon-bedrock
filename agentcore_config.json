@@ -1,0 +1,16 @@
+{
+  "region": "us-east-1",
+  "stack_name": "bug-report-tool-stack",
+  "table_name": "bug-report-tool-stack-bug-reports",
+  "lambda_arn": "arn:aws:lambda:us-east-1:614214695372:function:bug-report-tool-stack-create-bug-report",
+  "gateway_name": "bug-report-tool-stack-gateway",
+  "gateway_id": "bug-report-tool-stack-gateway-sew4fdofys",
+  "gateway_arn": "arn:aws:bedrock-agentcore:us-east-1:614214695372:gateway/bug-report-tool-stack-gateway-sew4fdofys",
+  "gateway_target_id": "AZUX8L82MS",
+  "gateway_target_name": "bugreports",
+  "harness_execution_role_arn": "arn:aws:iam::614214695372:role/bug-report-tool-stack-harness-role",
+  "harness_name": "support_chatbot",
+  "harness_id": "support_chatbot-F2UUTyVmVt",
+  "harness_arn": "arn:aws:bedrock-agentcore:us-east-1:614214695372:harness/support_chatbot-F2UUTyVmVt",
+  "model_id": "us.amazon.nova-pro-v1:0"
+}
