@@ -1,6 +1,6 @@
 # **Customer Support Chatbot with Amazon Bedrock**
 
-This is my Udacity project for the Future AWS Agent Engineer program. The chatbot routes customer messages into three paths: bug reports, platform questions, and other requests. The solution is built [...]
+This is my Udacity project for the Future AWS Agent Engineer program. The chatbot routes customer messages into three paths: bug reports, platform questions, and other requests. The solution is built with Amazon Bedrock Flows and uses `us-east-1`.
 
 ## **Project summary**
 
