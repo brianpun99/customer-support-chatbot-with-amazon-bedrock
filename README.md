@@ -36,19 +36,25 @@ RouteByCategory
 
 ## **Repository structure**
 
-README.md — project overview and setup notes
+## Repository structure
 
-system_prompt.txt — system instructions used for the chatbot
+- `README.md` — project overview, architecture, setup, testing, and submission notes
+- `agentcore_config.json` — configuration file for AgentCore-related setup
+- `chat.py` — helper script used for chatbot interaction or testing
+- `cleanup_agentcore.py` — cleanup script for removing AgentCore resources after testing
+- `cloudformation-tool.yaml` — CloudFormation template for project resources such as Lambda, DynamoDB, and related permissions
+- `cloudformation-testing.yaml` — CloudFormation template for evaluation resources
+- `create_bug_report.py` — Lambda function source for creating and storing bug reports
+- `create_harness.py` — script for preparing the test harness
+- `generate-eval-dataset.py` — script for generating the evaluation dataset from chatbot test runs
+- `harness-tests-template.json` — starter template for chatbot test cases
+- `harness-tests.json` — completed test cases used for project testing
+- `online_shop_faq.md` — FAQ content used in the platform-question branch
+- `output_eval_dataset.jsonl` — generated evaluation dataset file used for scoring
+- `requirements.txt` — Python dependencies for local scripts and testing
+- `setup_gateway.py` — setup script for gateway or integration configuration
+- `submission/` — evidence files for the final Udacity submission, including screenshots and supporting materials
 
-flow-tests.json — sample test prompts and expected behavior
-
-evaluation_dataset.jsonl — evaluation test set
-
-submission/ — screenshots, notes, and final submission evidence
-
-prompts/ — saved copies of classifier and branch prompts
-
-chat.py — optional local helper script or transcript evidence if used
 
 ## **Flow behavior**
 
