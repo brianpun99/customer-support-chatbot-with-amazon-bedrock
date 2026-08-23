@@ -1,0 +1,7 @@
+Evaluation Observation
+
+I tested the flow with 30 prompts covering bug reports, platform questions, and unrelated requests.
+The evaluation score was 0.82, which shows the classifier and routing logic worked correctly in most cases.
+Most bug-report prompts were routed properly, and platform FAQ questions were usually answered from the embedded FAQ.
+Some edge cases were less consistent, especially when prompts were ambiguous or overlapped between categories.
+Based on these results, the flow behavior is generally reliable, but prompt wording and routing rules could be refined further to improve consistency.

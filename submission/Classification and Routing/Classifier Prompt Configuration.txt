@@ -1,0 +1,11 @@
+Customer message: {{customer_message}}
+
+Return exactly one of these labels and nothing else:
+BUG_REPORT
+PLATFORM_QUESTION
+ANYTHING_ELSE
+
+Classification rules:
+- BUG_REPORT = broken feature, crash, error, failure, or request to report a bug
+- PLATFORM_QUESTION = FAQ-style question about orders, shipping, returns, payments, account, or support
+- ANYTHING_ELSE = all other requests
