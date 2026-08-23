@@ -33,7 +33,7 @@ RouteByCategory
   |
   +-- ANYTHING_ELSE -----> OtherRequestPrompt -------> OtherRequestOutput
 
-Repository structure
+## Repository structure
 
 README.md — project overview and setup notes
 system_prompt.txt — system instructions used for the chatbot
@@ -42,7 +42,8 @@ evaluation_dataset.jsonl — evaluation test set
 submission/ — screenshots, notes, and final submission evidence
 prompts/ — saved copies of classifier and branch prompts
 chat.py — optional local helper script or transcript evidence if used
-Flow behavior
+
+## Flow behavior
 
 1. Classifier
 
@@ -75,7 +76,7 @@ Please contact our human customer support team at 1-800-555-0199 (available Mond
 
 The other-request branch handles unrelated or unsupported requests and responds with the same human-support escalation message.
 
-Example test prompts
+## Example test prompts
 
 Covered FAQ question
 
@@ -92,12 +93,12 @@ Other request
 Can you write a happy birthday message to my friend?
 Expected behavior: routes to the separate other-request path and directs the user to the support phone number.
 
-Bug report
+## Bug report
 
 My app crashes when I try to log in.
 Expected behavior: routes to the bug report branch and asks for the next missing bug detail.
 
-Evaluation
+## Evaluation
 
 I tested the chatbot with a mix of:
 
@@ -105,12 +106,13 @@ bug report prompts
 covered FAQ questions
 uncovered FAQ questions
 unrelated requests
-The routing behavior worked well overall. Covered FAQ questions usually returned relevant answers, uncovered questions were redirected to support, and unrelated requests followed the separate fallback path.
+The routing behavior worked well overall with the evaluation score of 0.82, but further enhancement might be needed (stricter system prompt). Covered FAQ questions usually returned relevant answers, uncovered questions were redirected to support, and unrelated requests followed the separate fallback path.
 
-Observation
+## Observation
 
 The flow routing performed well overall. Covered FAQ questions generally returned relevant answers, uncovered platform questions were redirected to the support phone number, and unrelated requests followed the separate fallback path. Multi-turn bug report collection was designed correctly, although follow-up state handling was less consistent during testing.
-Submission evidence
+
+##Submission evidence
 
 The submission includes screenshots showing:
 
@@ -121,7 +123,8 @@ the FAQ prompt with embedded FAQ content
 a covered FAQ response
 an uncovered FAQ response
 an other-request response
-Notes
+
+## Notes
 
 The FAQ content is embedded directly in the FAQ prompt node.
 The classifier label is used only for routing.
@@ -131,6 +134,5 @@ Cleanup
 
 After testing, delete any unused flow versions and related AWS resources if needed.
 
-Evidence note
 
 This repository does not include private AWS account details, screenshots, or personal identifiers. Those should only be added in the final submission package after testing in your own AWS account.
