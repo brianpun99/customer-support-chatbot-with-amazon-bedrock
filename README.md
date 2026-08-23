@@ -107,11 +107,11 @@ bug report prompts
 covered FAQ questions
 uncovered FAQ questions
 unrelated requests
-The routing behavior worked well overall with the evaluation score of 0.82, but further enhancement might be needed (stricter system prompt). Covered FAQ questions usually returned relevant answers, u[...]
+The routing behavior worked well overall. overed FAQ questions usually returned relevant answers, uncovered questions were redirected to support, and unrelated requests followed the separate fallback path.
 
 ## **Observation**
 
-The flow routing performed well overall. Covered FAQ questions generally returned relevant answers, uncovered platform questions were redirected to the support phone number, and unrelated requests fol[...]
+The flow routing performed well overall with the evaluation score of 0.82, but further enhancement might be needed (stricter system prompt for bug report cases). Covered FAQ questions generally returned relevant answers, uncovered platform questions were redirected to the support phone number, and unrelated requests followed the separate fallback path. Multi-turn bug report collection was designed correctly, although follow-up state handling was less consistent during testing.
 
 ## **Submission evidence**
 
