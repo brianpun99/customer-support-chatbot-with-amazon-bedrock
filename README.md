@@ -37,11 +37,17 @@ RouteByCategory
 ## **Repository structure**
 
 README.md — project overview and setup notes
+
 system_prompt.txt — system instructions used for the chatbot
+
 flow-tests.json — sample test prompts and expected behavior
+
 evaluation_dataset.jsonl — evaluation test set
+
 submission/ — screenshots, notes, and final submission evidence
+
 prompts/ — saved copies of classifier and branch prompts
+
 chat.py — optional local helper script or transcript evidence if used
 
 ## **Flow behavior**
